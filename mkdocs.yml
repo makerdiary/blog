@@ -1,0 +1,173 @@
+# Copyright (c) 2016-2023 Makerdiary
+#
+# SPDX-License-Identifier: Apache-2.0
+
+# Project information
+site_name: Makerdiary Blog
+site_url: https://blog.makerdiary.com
+site_author: makerdiary
+site_description: >-
+  This blog is for you who are new to the Makerdiary's products - whether you are a
+  senior executive, in product development, or simply a curious soul. Our goal is to
+  inform you, know about recent updates to our projects, as well as preview upcoming
+  features and beta releases.
+
+# Repository
+repo_name: makerdiary
+repo_url: https://github.com/makerdiary
+edit_uri: ""
+#edit_uri: edit/main/docs
+
+# Copyright
+copyright: 'Copyright &copy; 2016-2023 <a href="https://makerdiary.com" target="_blank">makerdiary</a>'
+
+# Configuration
+theme:
+  name: material
+  custom_dir: docs/.overrides
+  features:
+    # - announce.dismiss
+    - content.code.annotate
+    - content.code.copy
+    # - content.tabs.link
+    - content.tooltips
+    # - header.autohide
+    # - navigation.expand
+    - navigation.indexes
+    - navigation.instant
+    - navigation.prune
+    # - navigation.sections
+    - navigation.tabs
+    # - navigation.tabs.sticky
+    - navigation.top
+    - navigation.tracking
+    - navigation.footer
+    - search.highlight
+    - search.share
+    - search.suggest
+    - toc.follow
+    # - toc.integrate
+  palette:
+    - scheme: default
+      primary: custom
+      toggle:
+        icon: material/weather-night
+        name: Switch to dark mode
+    - scheme: slate
+      primary: custom
+      toggle:
+        icon: material/weather-sunny
+        name: Switch to light mode
+  font:
+    text: Roboto
+    code: Roboto Mono
+  favicon: assets/favicon.png
+  icon:
+    logo: logo
+  # Announcement bar
+  announcement: ""
+
+  hero:
+    title: Welcome to Makerdiary Blog
+    description: >-
+      Be the first to know about recent updates to our projects, as well as preview upcoming features and beta releases.
+    button_primary:
+      label: Subscribe
+      link: https://makerdiary.com/newsletter
+
+# Plugins
+plugins:
+  - search
+  - blog:
+      blog_dir: .
+      post_dir: posts
+      post_date_format: medium
+      pagination_per_page: 6
+      pagination_keep_content: true
+      post_url_format: "{slug}"
+      post_readtime_words_per_minute: 128
+  # - git-revision-date-localized
+  - minify:
+      minify_html: true
+  # TODO: Support Chinese
+  # - i18n:
+  #    default_language: en
+  #    languages:
+  #      en: English
+  #      zh: 简体中文
+
+# Customization
+extra:
+  generator: false
+  analytics:
+    provider: google
+    property: !ENV GOOGLE_ANALYTICS_KEY
+  social:
+    - icon: fontawesome/brands/shopify
+      link: https://makerdiary.com
+    - icon: fontawesome/brands/github
+      link: https://github.com/makerdiary
+    - icon: fontawesome/brands/twitter
+      link: https://twitter.com/makerdiary
+    - icon: fontawesome/brands/discourse
+      link: https://community.makerdiary.com
+    - icon: fontawesome/brands/youtube
+      link: https://www.youtube.com/@makerdiary
+    - icon: fontawesome/solid/blog
+      link: https://blog.makerdiary.com
+    - icon: fontawesome/brands/medium
+      link: https://medium.com/makerdiary
+    - icon: fontawesome/solid/envelope
+      link: mailto:hi@makerdiary.com
+
+extra_css:
+  - assets/stylesheets/extra.css
+
+# Extensions
+markdown_extensions:
+  - abbr
+  - admonition
+  - attr_list
+  - def_list
+  - footnotes
+  - md_in_html
+  - meta
+  - toc:
+      permalink: true
+  - pymdownx.arithmatex:
+      generic: true
+  - pymdownx.betterem:
+      smart_enable: all
+  - pymdownx.caret
+  - pymdownx.details
+  - pymdownx.emoji:
+      emoji_generator: !!python/name:materialx.emoji.to_svg
+      emoji_index: !!python/name:materialx.emoji.twemoji
+  - pymdownx.highlight:
+      anchor_linenums: true
+  - pymdownx.inlinehilite
+  - pymdownx.keys
+  - pymdownx.magiclink:
+      repo_url_shorthand: true
+      user: makerdiary
+      repo: blog
+  - pymdownx.mark
+  - pymdownx.smartsymbols
+  - pymdownx.superfences:
+      custom_fences:
+        - name: mermaid
+          class: mermaid
+          format: !!python/name:pymdownx.superfences.fence_code_format
+  - pymdownx.tabbed:
+      alternate_style: true
+  - pymdownx.tasklist:
+      custom_checkbox: true
+  - pymdownx.tilde
+
+# Page tree
+nav:
+  - Home: index.md
+  - Store: https://makerdiary.com
+  - Wiki: https://wiki.makerdiary.com
+  - Community: https://github.com/orgs/makerdiary/discussions
+

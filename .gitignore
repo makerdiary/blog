@@ -1,0 +1,15 @@
+# editors
+*.swp
+*~
+
+# python
+.venv
+__pycache__
+*.egg-info
+dist
+
+# mkdocs
+site
+
+# macOS internals
+.DS_Store

@@ -1,0 +1,285 @@
+
+{% extends "main.html" %}
+
+<!-- Render hero under tabs -->
+{% block tabs %}
+  {{ super() }}
+
+  <!-- Additional styles for landing page -->
+  <style>
+
+    /* Application header should be static for the landing page */
+    .md-header {
+      position: initial;
+    }
+
+    .md-typeset h2 {
+      font-weight: 700;
+      margin-top: 0.175em;
+    }
+
+    /* Hero section */
+    .mdx-container {
+      background: linear-gradient(to bottom, var(--md-primary-fg-color), var(--md-primary-fg-color--light) 99%, var(--md-default-bg-color) 99%);
+      background-blend-mode: lighten;
+      height: 22rem;
+      transition: all 0.2s ease-in-out;
+    }
+
+    .mdx-container .md-grid {
+      display: flex;
+      justify-content: center;
+      height: 100%;
+    }
+
+    .mdx-hero {
+      display: flex;
+      flex-flow: row-reverse nowrap;
+      align-items: center;
+      justify-content: center;
+      color: var(--md-primary-bg-color);
+    }
+
+    .mdx-hero h1 {
+      color: currentcolor;
+      font-weight: 700;
+      margin-bottom: 1rem;
+    }
+    @media screen and (max-width:29.9375em) {
+      .mdx-hero h1 {
+        font-size: 1.2rem;
+      }
+    }
+    .mdx-hero__content {
+      max-width: 80%;
+      text-align: center;
+    }
+    @media screen and (min-width:60em) {
+      .mdx-hero__content {
+        max-width: 32rem;
+        padding-top: 5vw;
+        padding-bottom: 10vw;
+      }
+
+      .mdx-hero__image {
+        order: 1;
+        transform: translateX(4rem);
+        width: 38rem
+      }
+    }
+    @media screen and (min-width:76.25em) {
+      .mdx-hero__image {
+        transform: translateX(8rem)
+      }
+    }
+    .mdx-hero .md-button {
+      border: .05rem solid;
+      border-radius: 0;
+      box-shadow: 0 0 0 .05rem var(--md-primary-bg-colo);
+      color: var(--md-primary-bg-color);
+      margin-right: .5rem;
+      margin-top: .5rem;
+      transition: box-shadow .1s ease
+    }
+    .mdx-hero .md-button:focus,
+    .mdx-hero .md-button:hover {
+      background-color: initial;
+      border-color: var(--md-primary-bg-color);
+      box-shadow: 0 0 0 .05rem var(--md-primary-bg-color)
+    }
+    .mdx-hero .md-button--primary,
+    .mdx-hero .md-button--primary:focus,
+    .mdx-hero .md-button--primary:hover {
+      background-color: var(--md-primary-bg-color);
+      border-color: var(--md-primary-bg-color);
+      color: var(--md-primary-fg-color--light)
+    }
+    .mdx-hero .md-button--primary:focus,
+    .mdx-hero .md-button--primary:hover {
+      box-shadow: 0 0 0 .05rem var(--md-primary-bg-color)
+    }
+
+    .mdx-featured-blog__viewall {
+      margin-top: 1.5rem;
+      text-align: center;
+    }
+
+    .md-post__grid {
+      grid-gap: 1.6rem 1.4rem;
+      display: grid;
+      grid-template-columns: repeat(auto-fit,minmax(16rem,1fr));
+      margin: 1em 0
+    }
+
+    .md-post__grid.md-post__cards>ol,.md-post__grid.md-post__cards>ul {
+      display: contents
+    }
+
+    .md-post__grid.md-post__cards h2 {
+      margin: 0.5rem 0;
+      font-size: 0.9rem;
+    }
+
+    .md-post__grid.md-post__cards a {
+      color: var(--md-default-fg-color);
+    }
+    .md-post__grid.md-post__cards a:hover {
+      color: var(--md-primary-fg-color);
+    }
+
+    .article_link:hover .twemoji {
+      transform: translateX(0.2rem);
+    }
+
+    .md-post__grid.md-post__cards>ol>li,.md-post__grid.md-post__cards>ul>li,.md-post__grid>.md-post__card {
+      border: .05rem solid var(--md-default-fg-color--lightest);
+      border-radius: .1rem;
+      display: block;
+      margin: 0;
+      padding: .8rem;
+      transition: border .25s,box-shadow .25s
+    }
+
+    .md-post__grid.md-post__cards>ol>li:focus-within,.md-post__grid.md-post__cards>ol>li:hover,.md-post__grid.md-post__cards>ul>li:focus-within,.md-post__grid.md-post__cards>ul>li:hover,.md-post__grid>.md-post__card:focus-within,.md-post__grid>.md-post__card:hover {
+      border-color: #0000;
+      box-shadow: var(--md-shadow-z2)
+    }
+
+  </style>
+
+  <!-- Hero for landing page -->
+  {% if config.theme.hero %}
+    <section class="mdx-container">
+      <div class="md-grid md-typeset">
+        <div class="mdx-hero">
+          <div class="mdx-hero__content">
+            <h1>{{ config.theme.hero.title }}</h1>
+            <p>{{ config.theme.hero.description }}</p>
+            {% if config.theme.hero.button_primary %}
+              <a
+                href="{{ config.theme.hero.button_primary.link | url }}"
+                title="{{ config.theme.hero.button_primary.label | e }}"
+                class="md-button md-button--primary"
+              >
+                {{ config.theme.hero.button_primary.label }}
+              </a>
+            {% endif %}
+            {% if config.theme.hero.button_secondary %}
+              <a
+                href="{{ config.theme.hero.button_secondary.link | url }}"
+                title="{{ config.theme.hero.button_secondary.label | e }}"
+                class="md-button"
+              >
+                {{ config.theme.hero.button_secondary.label }}
+              </a>
+            {% endif %}
+          </div>
+        </div>
+      </div>
+    </section>
+  {% endif %}
+{% endblock %}
+
+<!-- Page content -->
+
+{% block content %}
+
+  <!-- Header -->
+  <header class="md-typeset">
+    {{ page.content }}
+  </header>
+
+  <!-- Latest Posts -->
+  <div class="md-post__grid md-post__cards">
+    <ul>
+      {% for post in posts %}
+        <li>
+          {% set cover = "/" ~ post.meta.cover %}
+          {% set time = post.config.readtime %}
+          <img src="{{ cover }}" alt="{{ post.meta.title | e }}" loading="lazy">
+          {{ post.content }}
+          <header class="md-post__header">
+  
+            <!-- Post authors -->
+            {% if post.authors %}
+              <nav class="md-post__authors md-typeset">
+                {% for author in post.authors %}
+                  <span class="md-author">
+                    <img src="{{ author.avatar }}" alt="{{ author.name }}" />
+                  </span>
+                {% endfor %}
+              </nav>
+            {% endif %}
+        
+            <!-- Post metadata -->
+            <div class="md-post__meta md-meta">
+              <ul class="md-meta__list">
+        
+                <!-- Post date -->
+                <li class="md-meta__item">
+                  <time datetime="{{ post.config.date.created }}">
+                    {{- post.config.date.created | date -}}
+                  </time>
+                  {#- Collapse whitespace -#}
+                </li>
+        
+                <!-- Post categories -->
+                {% if post.categories %}
+                  <li class="md-meta__item">
+                    {{ lang.t("blog.categories.in") }}
+                    {% for category in post.categories %}
+                      <a
+                        href="{{ category.url | url }}"
+                        class="md-meta__link"
+                      >
+                        {{- category.title -}}
+                      </a>
+                      {%- if loop.revindex > 1 %}, {% endif -%}
+                    {% endfor -%}
+                  </li>
+                {% endif %}
+        
+                <!-- Post readtime -->
+                {% if post.config.readtime %}
+                  {% set time = post.config.readtime %}
+                  <li class="md-meta__item">
+                    {% if time == 1 %}
+                      {{ lang.t("readtime.one") }}
+                    {% else %}
+                      {{ lang.t("readtime.other") | replace("#", time) }}
+                    {% endif %}
+                  </li>
+                {% endif %}
+              </ul>
+        
+              <!-- Draft marker -->
+              {% if post.config.draft %}
+                <span class="md-draft">
+                  {{ lang.t("blog.draft") }}
+                </span>
+              {% endif %}
+            </div>
+          </header>
+          <!-- <small>
+            <span class="twemoji">{% include ".icons/octicons/calendar-24.svg" %}</span> 
+            {{- post.config.date.created | date -}} . 
+            <span class="twemoji">{% include ".icons/octicons/clock-24.svg" %}</span> 
+            {% if time == 1 %}
+              {{ lang.t("readtime.one") }}
+            {% else %}
+              {{ lang.t("readtime.other") | replace("#", time) }}
+            {% endif %}
+          </small> -->
+        </li>
+      {% endfor %}
+    </ul>
+  </div>
+
+  <!-- Pagination -->
+  {% if pagination %}
+    {% block pagination %}
+      {% include "partials/pagination.html" %}
+    {% endblock %}
+  {% endif %}
+
+{% endblock %}
