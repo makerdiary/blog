@@ -70,7 +70,7 @@ jobs:
       - name: Build site
         run: mkdocs build
 
-      - name: Deploy documentation
+      - name: Deploy blog
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           GOOGLE_ANALYTICS_KEY: ${{ vars.GOOGLE_ANALYTICS_KEY }}

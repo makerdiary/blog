@@ -1,6 +1,6 @@
 ---
 template: blog.html
-title: Latest posts
+title: Home
 hide:
   - navigation
   - toc
