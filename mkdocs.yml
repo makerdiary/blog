@@ -19,7 +19,7 @@ edit_uri: ""
 #edit_uri: edit/main/docs
 
 # Copyright
-copyright: 'Copyright &copy; 2016-2024 <a href="https://makerdiary.com" target="_blank">makerdiary</a>'
+copyright: 'Copyright &copy; 2016-2025 <a href="https://makerdiary.com" target="_blank">makerdiary</a>'
 
 # Configuration
 theme:
@@ -76,6 +76,7 @@ theme:
   favicon: assets/favicon.png
   icon:
     logo: logo
+  
   # Announcement bar
   announcement: ""
 
@@ -89,7 +90,8 @@ theme:
 
 # Plugins
 plugins:
-  - search
+  - search:
+      separator: '[\s\u200b\-_,:!=\[\]()"`/]+|\.(?!\d)|&[lg]t;|(?!\b)(?=[A-Z][a-z])'
   - blog:
       blog_dir: .
       post_dir: posts
@@ -164,7 +166,7 @@ markdown_extensions:
       normalize_issue_symbols: true
       repo_url_shorthand: true
       user: makerdiary
-      repo: imxrt1011-nanokit
+      repo: blog.makerdiary.com
   - pymdownx.mark
   - pymdownx.smartsymbols
   - pymdownx.superfences:

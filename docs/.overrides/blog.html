@@ -201,7 +201,9 @@
           {% for post in posts %}
             <li>
               {% set cover = "/" ~ post.meta.cover %}
-              <img src="{{ cover }}" alt="{{ post.meta.title | e }}" loading="lazy">
+              <a href="{{ post.url | url }}">
+                <img src="{{ cover }}" alt="{{ post.meta.title | e }}" loading="lazy">
+              </a>
               <!-- Post categories -->
               {% if post.categories %}
                 <nav class="md-tags">

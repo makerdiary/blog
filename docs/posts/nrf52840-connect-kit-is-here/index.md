@@ -3,7 +3,7 @@ title: nRF52840 Connect Kit is Here!
 date: 2023-06-25
 authors:
   - makerdiary
-cover: nrf52840-connectkit-is-here/cover.png
+cover: nrf52840-connect-kit-is-here/cover.png
 categories:
   - News
 description: >

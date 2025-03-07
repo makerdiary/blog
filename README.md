@@ -8,4 +8,4 @@ This is a place to share your applications, articles, videos and any other resou
 
 ## License
 
-Copyright (c) 2016-2024 Makerdiary. See [LICENSE](./LICENSE) for further details.
+Copyright (c) 2016-2025 Makerdiary. See [LICENSE](./LICENSE) for further details.
